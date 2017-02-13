@@ -1,0 +1,40 @@
+//***************************************************************************************
+// CompAccount.java            Author: Michelle Holmes   
+//
+// The following program creates a custom computer account name using users full name
+// and random integer in range 10-99. 
+//***************************************************************************************
+import java.util.Random;  // Imports Random Class
+import java.util.Scanner; // Imports Scanner Class
+
+public class CompAccount 
+{
+	//---------------------------------------------------------------------------------
+	// Creates a custom account name using users full name and random integer combined.
+	//---------------------------------------------------------------------------------
+	
+	public static void main(String[] args) 
+	{
+		String firstName, lastName, acctName;  // Declares String reference variables
+		int num1;                              // Declares integer variable
+		
+		Random generator = new Random();       // Instantiates a Random Generator Object
+		Scanner scan = new Scanner (System.in);   // Instantiates a new Scanner Object
+		
+		System.out.println("What is your first name? ");  
+		firstName = scan.nextLine();			// User inputs first name
+		
+		System.out.println("What is your last name? ");  
+		lastName = scan.nextLine();				// User inputs last name
+		
+		acctName = firstName.charAt(0) + lastName.substring(0,5); 
+												// Creates string portion of account name
+		
+		num1 = generator.nextInt(90) + 10;   // Creates Random integer from range 10-99
+		acctName = acctName + num1;   // Combines character string and random integer
+		
+		System.out.println("Your account name is: " + acctName);  
+													// Displays custom account name
+	}
+
+}
